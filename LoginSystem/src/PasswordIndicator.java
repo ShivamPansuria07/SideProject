@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
 public class PasswordIndicator {
 	public static void printStrongNess(String input)
     {
-        //bro
+        
 		
         int n = input.length();
         boolean hasLower = false, hasUpper = false,

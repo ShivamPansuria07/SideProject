@@ -9,7 +9,7 @@ HashMap<String,String> logininfo = new HashMap<String,String>();
 		logininfo.put("Brometheus","PASSWORD");
 		logininfo.put("BroCode","abc123");
 	}
-	//f
+	
 	public HashMap getLoginInfo(){
 		return logininfo;
 	}

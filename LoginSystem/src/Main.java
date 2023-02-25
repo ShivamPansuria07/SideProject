@@ -16,6 +16,6 @@ public static void main(String[] args) {
 		HashMap<String,String> logininfo = new HashMap<String,String>();
 		logininfo.put(username, password);	
 		LoginPage loginPage = new LoginPage(logininfo);
-
+		}
 	}
-}
+

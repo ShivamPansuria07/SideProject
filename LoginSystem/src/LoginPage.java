@@ -14,7 +14,7 @@ public class LoginPage implements ActionListener{
 	JLabel userPasswordLabel = new JLabel("password:");
 	JLabel messageLabel = new JLabel();
 	HashMap<String,String> logininfo = new HashMap<String,String>();
-	
+	public boolean flag = false;
 	LoginPage(HashMap<String,String> loginInfoOriginal){
 		
 		logininfo = loginInfoOriginal;
@@ -65,13 +65,14 @@ public class LoginPage implements ActionListener{
 			
 			if(logininfo.containsKey(userID)) {
 				 if(logininfo.get(userID).equals(password)) {
+					flag = true;
 					messageLabel.setForeground(Color.green);
 					messageLabel.setText("Login successful");
 					frame.dispose();
 					WelcomePage welcomePage = new WelcomePage(userID);
-					BankingApplication ap = new BankingApplication();
-					ap.bank();
-					//wefdsdfdsafafdasf
+					BankingApplication ap = new BankingApplication(userID);
+					
+					
 				}
 				else {
 					messageLabel.setForeground(Color.red);
