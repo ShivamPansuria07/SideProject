@@ -70,17 +70,10 @@ public class BankingApplication {
 			}
 		
 		}while(option != "E");
+			//
 			
 			
-			
-			//option = scanner.nextLine();
-//			while (option != "E") {
-//				
-//			if (option == "E") {
-//				System.out.println("Thank You for Using our Services.....!!");
-//				break;
-//			}
-//		}
+
 	}
 
 }
