@@ -3,8 +3,8 @@ import java.awt.event.*;
 import java.util.*;
 import javax.swing.*;
 
-public class LoginPage implements ActionListener{
-	
+public class LoginPage implements ActionListener {
+
 	JFrame frame = new JFrame();
 	JButton loginButton = new JButton("Login");
 	JButton resetButton = new JButton("Reset");
@@ -13,26 +13,27 @@ public class LoginPage implements ActionListener{
 	JLabel userIDLabel = new JLabel("userID:");
 	JLabel userPasswordLabel = new JLabel("password:");
 	JLabel messageLabel = new JLabel();
-	HashMap<String,String> logininfo = new HashMap<String,String>();
+	HashMap<String, String> logininfo = new HashMap<String, String>();
 	public boolean flag = false;
-	LoginPage(HashMap<String,String> loginInfoOriginal){
-		
+
+	LoginPage(HashMap<String, String> loginInfoOriginal) {
+
 		logininfo = loginInfoOriginal;
-		
-		userIDLabel.setBounds(50,100,75,25);
-		userPasswordLabel.setBounds(50,150,75,25);
-		
-		messageLabel.setBounds(125,250,250,35);
-		messageLabel.setFont(new Font(null,Font.ITALIC,25));
-		
-		userIDField.setBounds(125,100,200,25);
-		userPasswordField.setBounds(125,150,200,25);
-		
-		loginButton.setBounds(125,200,100,25);
+
+		userIDLabel.setBounds(50, 100, 75, 25);
+		userPasswordLabel.setBounds(50, 150, 75, 25);
+
+		messageLabel.setBounds(125, 250, 250, 35);
+		messageLabel.setFont(new Font(null, Font.ITALIC, 25));
+
+		userIDField.setBounds(125, 100, 200, 25);
+		userPasswordField.setBounds(125, 150, 200, 25);
+
+		loginButton.setBounds(125, 200, 100, 25);
 		loginButton.setFocusable(false);
 		loginButton.addActionListener(this);
-		
-		resetButton.setBounds(225,200,100,25);
+
+		resetButton.setBounds(225, 200, 100, 25);
 		resetButton.setFocusable(false);
 		resetButton.addActionListener(this);
 		frame.add(userIDLabel);
@@ -44,71 +45,44 @@ public class LoginPage implements ActionListener{
 		frame.add(resetButton);
 		frame.setTitle("Banking Application");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(420,420);
+		frame.setSize(420, 420);
 		frame.setLayout(null);
 		frame.setVisible(true);
-		
+
 	}
-//ssds
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
-		if(e.getSource()==resetButton) {
+
+		if (e.getSource() == resetButton) {
 			userIDField.setText("");
 			userPasswordField.setText("");
 		}
-		
-		if(e.getSource()==loginButton) {
-			
+
+		if (e.getSource() == loginButton) {
+
 			String userID = userIDField.getText();
 			String password = String.valueOf(userPasswordField.getPassword());
-			
-			if(logininfo.containsKey(userID)) {
-				 if(logininfo.get(userID).equals(password)) {
+
+			if (logininfo.containsKey(userID)) {
+				if (logininfo.get(userID).equals(password)) {
 					flag = true;
 					messageLabel.setForeground(Color.green);
 					messageLabel.setText("Login successful");
 					frame.dispose();
 					WelcomePage welcomePage = new WelcomePage(userID);
 					BankingApplication ap = new BankingApplication(userID);
-					
-					
-				}
-				else {
+
+				} else {
 					messageLabel.setForeground(Color.red);
 					messageLabel.setText("Wrong password");
 				}
 
-			}
-			else {
+			} else {
 				messageLabel.setForeground(Color.red);
 				messageLabel.setText("username not found");
 			}
 		}
-	}	
-
-
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 	}
-	
-	
 
+}
